@@ -1,4 +1,11 @@
 FinalProject::Application.routes.draw do
+  get "businesses/new"
+  root  'static_pages#home'
+  match '/signup',  to: 'businesses#new',       via: 'get'
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/map',     to: 'static_pages#map',     via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
