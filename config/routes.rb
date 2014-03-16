@@ -1,5 +1,5 @@
 FinalProject::Application.routes.draw do
-  get "businesses/new"
+  resources :businesses
   root  'static_pages#home'
   match '/signup',  to: 'businesses#new',       via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
