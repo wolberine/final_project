@@ -1,4 +1,5 @@
 class Business < ActiveRecord::Base
+  has_many :menu_items, dependent: :destroy
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
@@ -11,6 +12,11 @@ class Business < ActiveRecord::Base
 
   def Business.new_remember_token
     SecureRandom.urlsafe_base64
+  end
+
+  def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    MenuItem.where("business_id = ?", id)
   end
 
   def Business.hash(token)

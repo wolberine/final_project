@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316210648) do
+ActiveRecord::Schema.define(version: 20140316214806) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -32,5 +32,18 @@ ActiveRecord::Schema.define(version: 20140316210648) do
 
   add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true
   add_index "businesses", ["remember_token"], name: "index_businesses_on_remember_token"
+
+  create_table "menu_items", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "business_id"
+    t.float    "price"
+    t.string   "picture_url"
+    t.integer  "menu_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "menu_items", ["business_id", "created_at"], name: "index_menu_items_on_business_id_and_created_at"
 
 end

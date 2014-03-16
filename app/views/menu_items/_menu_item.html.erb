@@ -1,0 +1,15 @@
+<li>
+  <span class="name"><%= menu_item.name %></span>
+  <span class="description"><%= menu_item.description %></span>
+  <% if menu_item.price %>
+  	<span class="price"><%= "$" + menu_item.price.to_s %></span>
+  <% end %>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(menu_item.created_at) %> ago.
+  </span>
+  <% if current_business?(menu_item.business) %>
+    <%= link_to "delete", menu_item, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: menu_item.name %>
+  <% end %>
+</li>

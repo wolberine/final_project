@@ -18,5 +18,11 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+    businesses = Business.all(limit: 6)
+    50.times do
+      name = Faker::Lorem.word
+      description = Faker::Lorem.sentence(5)
+      businesses.each { |business| business.menu_items.create!(name: name, description: description) }
+    end
   end
 end

@@ -9,4 +9,13 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+    <% if @business.menu_items.any? %>
+      <h3>Menu Items (<%= @business.menu_items.count %>)</h3>
+      <ol class="menu_items">
+        <%= render @menu_items %>
+      </ol>
+      <%= will_paginate @menu_items %>
+    <% end %>
+  </div>
 </div>

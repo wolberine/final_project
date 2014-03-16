@@ -187,3 +187,38 @@ aside {
     }
   }
 }
+
+/* menu_items */
+
+.menu_items {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.name {
+  display: block;
+  font-weight: bold;
+}
+.description {
+  display: block;
+}
+.price {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}

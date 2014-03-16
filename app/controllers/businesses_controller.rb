@@ -19,6 +19,7 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
+    @menu_items = @business.menu_items.paginate(page: params[:page])
   end
 
   def edit
@@ -50,13 +51,6 @@ class BusinessesController < ApplicationController
     def business_params
       params.require(:business).permit(:name, :email, :address,:password,
                                    :password_confirmation)
-    end
-
-    def signed_in_business
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end    
     end
 
     def correct_business
