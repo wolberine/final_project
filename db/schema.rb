@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316214806) do
+ActiveRecord::Schema.define(version: 20140316233526) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -45,5 +45,16 @@ ActiveRecord::Schema.define(version: 20140316214806) do
   end
 
   add_index "menu_items", ["business_id", "created_at"], name: "index_menu_items_on_business_id_and_created_at"
+
+  create_table "menus", force: true do |t|
+    t.integer  "business_id"
+    t.integer  "menu_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "menus", ["business_id", "menu_item_id"], name: "index_menus_on_business_id_and_menu_item_id", unique: true
+  add_index "menus", ["business_id"], name: "index_menus_on_business_id"
+  add_index "menus", ["menu_item_id"], name: "index_menus_on_menu_item_id"
 
 end

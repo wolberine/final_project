@@ -9,6 +9,8 @@ class Business < ActiveRecord::Base
   validates :address, presence: true	
   has_secure_password
   validates :password, length: { minimum: 6 }
+  geocoded_by :address
+  after_validation :geocode
 
   def Business.new_remember_token
     SecureRandom.urlsafe_base64
