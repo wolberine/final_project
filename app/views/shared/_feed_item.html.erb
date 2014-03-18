@@ -1,6 +1,6 @@
 <li id="<%= feed_item.id %>">
   <%= link_to gravatar_for(feed_item.business), feed_item.business %>
-  <span class="user">
+  <span class="business">
     <%= link_to feed_item.business.name, feed_item.business %>
   </span>
   <span class="name"><%= feed_item.name %></span>
@@ -14,6 +14,10 @@
   <% if current_business?(feed_item.business) %>
     <%= link_to "delete", feed_item, method: :delete,
                                      data: { confirm: "You sure?" },
-                                     title: feed_item.name %>
+                                     title: feed_item.name,
+                                     remote: true %>
   <% end %>
 </li>
+
+
+

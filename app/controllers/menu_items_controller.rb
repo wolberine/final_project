@@ -18,7 +18,11 @@ class MenuItemsController < ApplicationController
 
   def destroy
     @menu_item.destroy
-    redirect_to root_url
+    @feed_items = current_business.feed.paginate(page: params[:page])
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 
   private
