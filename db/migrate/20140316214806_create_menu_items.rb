@@ -4,7 +4,7 @@ class CreateMenuItems < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :business_id
-      t.float :price
+      t.decimal :price, precision: 12, scale: 2
       t.string :picture_url
       t.integer :menu_id
 

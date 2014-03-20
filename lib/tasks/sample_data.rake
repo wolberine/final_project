@@ -14,7 +14,7 @@ namespace :db do
                       "15610 E 8 Mile Rd, Detroit, MI 48205",
                       "2941 S Telegraph Rd, Dearborn, MI 48124",
                       "13136 Michigan Ave, Dearborn, MI 48126"]
-    5.times do |n|
+    6.times do |n|
       sleep 2
       name  = Faker::Company.name
       #address = Faker::Address.street_address+", "+Faker::Address.city+", "+Faker::Address.state_abbr+" "+Faker::Address.zip
@@ -31,7 +31,8 @@ namespace :db do
     100.times do
       name = Faker::Lorem.word
       description = Faker::Lorem.sentence(5)
-      businesses.each { |business| business.menu_items.create!(name: name, description: description) }
+      price = 12.99
+      businesses.each { |business| business.menu_items.create!(name: name, description: description, price: price) }
     end
   end
 end

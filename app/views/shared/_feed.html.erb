@@ -2,5 +2,5 @@
   <ol class="menu_items">
     	<%= render partial: 'shared/feed_item', collection: @feed_items %>
   </ol>
-  <%= ajax_will_paginate @feed_items, :params => { :my_excluded_param => nil } %>
+<%= will_paginate @feed_items %>
 <% end %>
