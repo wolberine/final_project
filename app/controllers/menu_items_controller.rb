@@ -29,7 +29,7 @@ class MenuItemsController < ApplicationController
   private
 
     def menu_item_params
-      params.require(:menu_item).permit(:name, :description, :price)
+      params.require(:menu_item).permit(:name, :description, :price, :photo, :photo_file_name)
     end
 
     def correct_business

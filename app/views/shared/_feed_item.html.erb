@@ -4,6 +4,11 @@
     <%= link_to feed_item.business.name, feed_item.business %>
   </span>
   <span class="name"><%= feed_item.name %></span>
+  
+  <% if !feed_item.photo.url.nil? %>
+    <%= image_tag feed_item.photo.url %>
+  <% end %>
+
   <span class="description"><%= feed_item.description %></span>
   <% if feed_item.price %>
   	<span class="price"><%= "$" + feed_item.price.to_s %></span>

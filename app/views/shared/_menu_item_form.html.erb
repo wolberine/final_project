@@ -1,9 +1,10 @@
-<%= form_for(@menu_item) do |f| %>
+<%= form_for @menu_item, :html => { :multipart => true }  do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
     <%= f.text_field :name, placeholder: "Enter menu item name" %>
   <div class="field">
     <%= f.text_area :description, placeholder: "Compose new menu item description..." %>
   </div>
     <%= f.text_field :price, placeholder: "Enter menu item price" %>
+    <p><%= f.file_field :photo %></p>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>

@@ -1,11 +1,10 @@
 class CreateMenuItems < ActiveRecord::Migration
   def change
     create_table :menu_items do |t|
-      t.string :name
-      t.text :description
+      t.string  :name
+      t.text    :description
       t.integer :business_id
       t.decimal :price, precision: 12, scale: 2
-      t.string :picture_url
       t.integer :menu_id
 
       t.timestamps

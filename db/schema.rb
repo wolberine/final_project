@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316233526) do
+ActiveRecord::Schema.define(version: 20140320211955) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140316233526) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
   end
 
   add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true
@@ -37,11 +37,14 @@ ActiveRecord::Schema.define(version: 20140316233526) do
     t.string   "name"
     t.text     "description"
     t.integer  "business_id"
-    t.float    "price"
-    t.string   "picture_url"
+    t.decimal  "price",              precision: 12, scale: 2
     t.integer  "menu_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "menu_items", ["business_id", "created_at"], name: "index_menu_items_on_business_id_and_created_at"

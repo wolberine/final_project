@@ -6,4 +6,8 @@ class MenuItem < ActiveRecord::Base
   validates :price, presence: true,
             numericality: true,
             format: { :with => /\A\d{1,4}(\.\d{0,2})?\z/ }
-end
+  has_attached_file :photo
+  validates_attachment_presence :photo
+  validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  #
+ end

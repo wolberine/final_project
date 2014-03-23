@@ -1,5 +1,10 @@
 <li>
   <span class="name"><%= menu_item.name %></span>
+
+  <% if !menu_item.photo.url.nil? %>
+    <%= image_tag menu_item.photo.url %>
+    <% end %>
+
   <span class="description"><%= menu_item.description %></span>
   <% if menu_item.price %>
   	<span class="price"><%= "$" + menu_item.price.to_s %></span>

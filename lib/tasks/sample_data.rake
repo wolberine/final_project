@@ -32,7 +32,8 @@ namespace :db do
       name = Faker::Lorem.word
       description = Faker::Lorem.sentence(5)
       price = 12.99
-      businesses.each { |business| business.menu_items.create!(name: name, description: description, price: price) }
+      photo = File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample)
+      businesses.each { |business| business.menu_items.create!(name: name, description: description, price: price, photo: photo) }
     end
   end
 end
