@@ -2,6 +2,7 @@ class BusinessesController < ApplicationController
   before_action :signed_in_business, only: [:edit, :update, :index, :destroy]
   before_action :correct_business,   only: [:edit, :update]
   before_action :admin_business,     only: :destroy
+  WillPaginate.per_page = 10
 
   def index
     @businesses = Business.paginate(page: params[:page])

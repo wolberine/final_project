@@ -13,8 +13,17 @@ namespace :db do
                       "14420 W 7 Mile Rd, Detroit, MI 48235",
                       "15610 E 8 Mile Rd, Detroit, MI 48205",
                       "2941 S Telegraph Rd, Dearborn, MI 48124",
-                      "13136 Michigan Ave, Dearborn, MI 48126"]
-    6.times do |n|
+                      "13136 Michigan Ave, Dearborn, MI 48126",
+                      "3401 Riopelle St, Detroit, MI 48207",
+                      "21413 W 8 Mile Rd, Detroit, MI 48219",
+                      "400 E Congress St, Detroit, MI 48226",
+                      "2482 Clifford St, Detroit, MI 48201",
+                      "2644 Harrison St, Detroit, MI 48216",
+                      "16807 W Warren Ave, Detroit, MI 48228",
+                      "20510 Livernois Ave, Detroit, MI 48221",
+                      "18290 Livernois Ave, Detroit, MI 48221",
+                      "18401 W 8 Mile Rd, Detroit, MI 48219"]
+    14.times do |n|
       sleep 2
       name  = Faker::Company.name
       #address = Faker::Address.street_address+", "+Faker::Address.city+", "+Faker::Address.state_abbr+" "+Faker::Address.zip
@@ -27,8 +36,8 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
-    businesses = Business.all(limit: 3)
-    100.times do
+    businesses = Business.all(limit: 5)
+    15.times do
       name = Faker::Lorem.word
       description = Faker::Lorem.sentence(5)
       price = 12.99
