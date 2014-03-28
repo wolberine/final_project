@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140320211955) do
     t.text     "description"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "gmaps"
     t.string   "picture"
     t.string   "category"
     t.string   "phone"

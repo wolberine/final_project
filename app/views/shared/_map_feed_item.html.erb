@@ -1,0 +1,18 @@
+<div class="well">
+  <li id="<%= map_feed_item.id %>">
+    
+    <% if !map_feed_item.photo.url.nil? %>
+      <%= image_tag map_feed_item.photo.url %>
+    <% end %>
+
+    <span class="description"><%= map_feed_item.description %></span>
+    <% if map_feed_item.price %>
+    	<span class="price"><%= "$" + map_feed_item.price.to_s %></span>
+    <% end %>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(map_feed_item.created_at) %> ago.
+    </span>
+  </li>
+</div>
+
+

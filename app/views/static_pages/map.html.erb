@@ -9,15 +9,63 @@
   is the sample application for the tutorial.
 </p>
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div class="row">
+	<div class="span7">	
+		<div class="well">
+	  		<div id="map" style='width: 100%; height: 400px;'></div>
+	  	</div>
+	 </div>
+	<div class="span5 map-menu-wrapper">
+		    <div id="map-feed-form"><%= render partial: 'shared/map_feed_item', collection: @feed_items %></div>
+	</div> 
 </div>
 
+<div id="tester-block"><p>placeholder</p></div>
+<div id="latlong">
+This is the lat long of the currently clicked point.
+<%= raw(@hash.to_json) %>
+</div>
+
+
+
+
+<% content_for :scripts do %>
 <script type="text/javascript">
-	handler = Gmaps.build('Google');
-	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-	  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-	  handler.bounds.extendWith(markers);
-	  handler.fitMapToBounds();
-	});
+debugger;
+var handler2 = Gmaps.build('Google');
+handler2.buildMap({ provider: { zoom: 1 }, internal: {id: 'map'}}, function(){
+  // I assume this is the way you retrieve the amrkers array
+  var json_data = <%=raw @hash.to_json %>;
+  var markers = handler2.addMarkers(json_data);
+
+  _.each(json_data, function(json, index){
+      json.marker = markers[index];
+      google.maps.event.addListener(json.marker.getServiceObject(), 'click', function( event ){
+      	alert('hi');
+        var latlong = document.getElementById("latlong");
+        latlong.innerHTML =( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
+            $.ajax({
+        	url: '/map',
+        	type: 'GET',
+        	async: false,
+        	dataType: 'json',
+        	data: { 
+        		infowindow: json.marker.infowindow
+        	}
+        });
+
+      });
+  });
+      handler2.bounds.extendWith(markers);
+      handler2.fitMapToBounds();
+});
+
+		$(document).ready(function(){
+			alert('Welcome to index');
+		});
 </script>
+<% end %>
+
+
+
+

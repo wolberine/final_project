@@ -7,6 +7,7 @@ class CreateBusinesses < ActiveRecord::Migration
       t.text :description
       t.float :latitude
       t.float :longitude
+      t.boolean :gmaps
       t.string :picture
       t.string :category
       t.string :phone
