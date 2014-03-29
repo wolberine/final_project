@@ -1,2 +1,2 @@
-$("#map-feed-form").html("<%= escape_javascript render :partial => 'menu_item_test', :locals => {:infowindow => @infowindow} %>");
+$("#map-feed-form").html("<%= escape_javascript render :partial => 'shared/map_feed_item' , collection: @new_menu %>");
 $("#tester-block").html("foobar");

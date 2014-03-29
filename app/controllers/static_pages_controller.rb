@@ -13,20 +13,24 @@ class StaticPagesController < ApplicationController
   end
 
 
-  respond_to :html, :js, :json
+
   def map
     @businesses = Business.all
+    @business_feed_items = Business.all.paginate(page: params[:page])
     @hash = Gmaps4rails.build_markers(@businesses) do |business, marker|
       marker.lat business.latitude
       marker.lng business.longitude
       marker.infowindow business.name
-      marker.json({ title: business.name })
+      marker.json({ title: business.name, id: business.id })
     end
-    @menu_item = current_business.menu_items.build 
+    #@menu_item = current_business.menu_items.build 
     @feed_items = current_business.feed.paginate(page: params[:page])
-    
+    #@feed_items = Business.find_by(id: params[:id]).feed
     respond_to do |format|
-      @infowindow = params[:infowindow]
+      if request.xhr?
+        new_business = Business.find(params[:id])
+        @new_menu = new_business.feed
+      end
       format.js { render 'map' }
       format.html 
       format.json 

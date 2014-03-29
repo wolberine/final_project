@@ -36,12 +36,12 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
-    businesses = Business.all(limit: 5)
-    15.times do
+    businesses = Business.all(limit: 15)
+    15.times do |n|
       name = Faker::Lorem.word
       description = Faker::Lorem.sentence(5)
       price = 12.99
-      photo = File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample)
+      photo = File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample(random: (Random.new_seed*n)%15))
       businesses.each { |business| business.menu_items.create!(name: name, description: description, price: price, photo: photo) }
     end
   end
