@@ -95,6 +95,23 @@ p {
   }
 }
 
+#image_logo{
+  width: 25%;
+  height:25%;
+}
+
+#getfull_link {
+  color: #037e8c;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: #f41c54;
+    text-decoration: none;
+  }
+}
+
 
 
 /* footer */
