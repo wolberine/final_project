@@ -3,8 +3,7 @@
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
 <h1>Map</h1>
 <p>
-	Click the map to bring up the menu of that restaurant!
-	Click the restaurant to go to the restaurant's home page!
+	Click a map marker to bring up the menu of that restaurant! Click the restaurant name in the sidebar to go to the restaurant's home page!
 </p>
 
 <div class="row">
@@ -28,7 +27,6 @@ This is the lat long of the currently clicked point.
 
 <% content_for :scripts do %>
 <script type="text/javascript">
-debugger;
 var handler2 = Gmaps.build('Google');
 handler2.buildMap({ provider: { zoom: 1 }, internal: {id: 'map'}}, function(){
   // I assume this is the way you retrieve the amrkers array
@@ -38,7 +36,6 @@ handler2.buildMap({ provider: { zoom: 1 }, internal: {id: 'map'}}, function(){
   _.each(json_data, function(json_marker, index){
       json_marker.marker = markers[index];
       google.maps.event.addListener(json_marker.marker.getServiceObject(), 'click', function( event ){
-      	alert(json_marker.id);
         var latlong = document.getElementById("latlong");
         latlong.innerHTML =( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
             $.ajax({
@@ -57,9 +54,7 @@ handler2.buildMap({ provider: { zoom: 1 }, internal: {id: 'map'}}, function(){
       handler2.fitMapToBounds();
 });
 
-		$(document).ready(function(){
-			alert('Welcome to index');
-		});
+
 </script>
 <% end %>
 

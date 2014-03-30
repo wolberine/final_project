@@ -1,4 +1,18 @@
+
+$navbarBackground: white;
+
 @import "bootstrap";
+
+
+/* navbar css */
+.navbar-inner { background: $navbarBackground; }
+.navbar .nav > li > a {
+    color: gray;
+    float: none;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-shadow: 0 0px 0 #ffffff;
+}
 
 /* mixins, variables, etc. */
 
@@ -69,17 +83,19 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: #037e8c;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: #f41c54;
     text-decoration: none;
   }
 }
+
+
 
 /* footer */
 

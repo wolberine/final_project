@@ -11,6 +11,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'paperclip'
 gem 'devise', '3.0.0.rc' 
 gem 'debugger'
+gem 'rmagick', '2.13.2'
 
 #bug fix
 gem 'sprockets', '2.11.0'

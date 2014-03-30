@@ -24,7 +24,7 @@ class StaticPagesController < ApplicationController
       marker.json({ title: business.name, id: business.id })
     end
     #@menu_item = current_business.menu_items.build 
-    @feed_items = current_business.feed.paginate(page: params[:page])
+    #@feed_items = current_business.feed.paginate(page: params[:page])
     #@feed_items = Business.find_by(id: params[:id]).feed
     respond_to do |format|
       if request.xhr?
