@@ -1,6 +1,6 @@
 <% if signed_in? %>
   <div class="row">
-    <aside class="span4">
+    <aside class="span5">
       <section>
         <div id="business_info"><%= render 'shared/business_info' %></div>
       </section>
@@ -8,7 +8,8 @@
         <%= render 'shared/menu_item_form' %>
       </section>
     </aside>
-    <div class="span8">
+    <div class="span1"></div>
+    <div class="span6">
       <h3>Menu Item Feed</h3>
       <div id="feed_form"><%= render 'shared/feed' %><div>
     </div>

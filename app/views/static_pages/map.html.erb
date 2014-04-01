@@ -34,6 +34,7 @@ This is the latitude and longitude of the active marker. For demo purposes only.
 var handler2 = Gmaps.build('Google');
 handler2.buildMap({ provider: { 
 	zoom: 1,
+	panBy: (500, 50),
 	panControl: true,
 	panControlOptions: {
 		position: google.maps.ControlPosition.TOP_RIGHT
@@ -67,9 +68,11 @@ handler2.buildMap({ provider: {
   });
       handler2.bounds.extendWith(markers);
       handler2.fitMapToBounds();
+
+      
 });
-
-
+var targetOffset = $('#map').offset().top - 40;	
+$("html, body").delay(2000).animate({scrollTop: targetOffset }, 2000);
 </script>
 <% end %>
 

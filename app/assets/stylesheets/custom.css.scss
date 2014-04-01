@@ -274,15 +274,26 @@ li
   height: 400px;
 }
 
+#business_feed_item{
+  background-color: rgba(255,255,255,0);
+  border: none;
+}
+
+#menu_feed_item{
+  background-color: rgba(255,255,255,0);
+  border: none;
+}
+
 #map-feed-form-over-map{
   z-index: 100;
   position: absolute;
   margin: 30px 0px 0px 20px;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.8);
   border: none;
   padding: 5px;
-  height: 450px;
+  height: 430px;
   width: 300px;
   overflow: auto;
   direction:ltr;
+  border-radius:5px;
 }
