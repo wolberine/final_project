@@ -84,13 +84,6 @@ FinalProject::Application.configure do
 
 
   # config/environments/production.rb
-config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['wolberine'],
-    :access_key_id => ENV['AKIAJZZ6NPB63BRFJPGQ'],
-    :secret_access_key => ENV['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']
-  }
-}
+
 
 end
