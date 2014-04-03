@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
 
   def map
     @businesses = Business.all
-    @business_feed_items = Business.all.paginate(page: params[:page])
+    @business_feed_items = Business.all
     @hash = Gmaps4rails.build_markers(@businesses) do |business, marker|
       marker.lat business.latitude
       marker.lng business.longitude

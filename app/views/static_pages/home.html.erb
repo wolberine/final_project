@@ -1,3 +1,5 @@
+ <script src="http://twitter.github.io/bootstrap/dist/js/bootstrap.js"></script>
+
 <% if signed_in? %>
   <div class="row">
     <aside class="span5">
@@ -18,6 +20,8 @@
   <div class="center hero-unit">
     <h1>Welcome to <%= link_to "GETFULL", map_path, :id => "getfull_link" %></h1>
     <%= image_tag "coat.png", :id => "image_logo" %>
+
+
 
     <h2>
       This is the home page for the <%= link_to "GETFULL", map_path, :id => "getfull_link" %>, Derrick Wolbert's ECE528 Final Project.
