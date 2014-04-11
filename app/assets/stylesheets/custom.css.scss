@@ -306,9 +306,14 @@ li
 
 /* mobile */
 
-#mobile-gmap_container {
-  width: 100%;
+#mobile-map {
   height: 352px;
+  width: 310px;
+}
+
+#mobile-gmap_container {
+  height: 352px;
+  width: 310px;
 }
 
 #mobile-map-feed-form-over-map{
@@ -336,7 +341,7 @@ li
     /* position clickable area to consume entire right section of popout (add a border if you want to see for yourself) */  
     top: 0;
     bottom: 0;
-    right: 0;
+    left: 0;
     cursor: pointer;   
     z-index: 100;
 }

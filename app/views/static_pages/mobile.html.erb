@@ -8,7 +8,7 @@
 	<div id="mobile-map-feed-form-over-map" class="hidden">
     <%= render partial: 'shared/business_feed_item', collection: @businesses %>
   </div>
-	<div id="map" style='width: 100%; height: 100%;'></div>
+	<div id="mobile-map" style='width: 100%; height: 100%;'></div>
 </div>
 <div id="trigger"><span>Show</span></div>
 
@@ -29,7 +29,7 @@ handler2.buildMap({ provider: {
         style: google.maps.ZoomControlStyle.LARGE,
         position: google.maps.ControlPosition.RIGHT_CENTER
     }
-}, internal: {id: 'map'}}, function(){
+}, internal: {id: 'mobile-map'}}, function(){
   // I assume this is the way you retrieve the amrkers array
   var json_data = <%=raw @hash.to_json %>;
   var markers = handler2.addMarkers(json_data);
