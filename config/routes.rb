@@ -11,6 +11,7 @@ FinalProject::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/map',     to: 'static_pages#map',     via: 'get'
   match '/map_ajax',to: 'static_pages#map',     via: 'get'
+  match '/mobile',  to: 'static_pages#mobile',     via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

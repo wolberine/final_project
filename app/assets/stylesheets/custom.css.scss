@@ -30,9 +30,15 @@ html {
   overflow-y: scroll;
 }
 
+#mobile {
+  padding-top: 0px;
+}
+
 body {
   padding-top: 60px;
 }
+
+
 
 section {
   overflow: auto;
@@ -296,4 +302,41 @@ li
   overflow: auto;
   direction:ltr;
   border-radius:5px;
+}
+
+/* mobile */
+
+#mobile-gmap_container {
+  width: 100%;
+  height: 352px;
+}
+
+#mobile-map-feed-form-over-map{
+  z-index: 100;
+  position: absolute;
+
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: -300px;
+
+  background-color: rgba(255,255,255,0.8);
+  border: none;
+  padding: 5px;
+  height: 352px;
+  width: 300px;
+  overflow: auto;
+  direction:ltr;
+  border-radius:5px;
+}
+
+#trigger {                          
+/* create a clickable area that triggers the slide in/out effect */
+    position: absolute;             
+    /* position clickable area to consume entire right section of popout (add a border if you want to see for yourself) */  
+    top: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;   
+    z-index: 100;
 }

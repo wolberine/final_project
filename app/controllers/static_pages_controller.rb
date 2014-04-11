@@ -37,4 +37,26 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def mobile #mobile map view prototype
+    @skip_header = true
+    @skip_footer = true
+    @mobile_body = true
+    @businesses = Business.all
+    @hash = Gmaps4rails.build_markers(@businesses) do |business, marker|
+      marker.lat business.latitude
+      marker.lng business.longitude
+      marker.infowindow business.name
+      marker.json({ title: business.name, id: business.id })
+    end
+    respond_to do |format|
+      if request.xhr?
+        new_business = Business.find(params[:id])
+        @new_menu = new_business.feed
+      end
+      format.js { render 'map' }
+      format.html 
+      format.json 
+    end
+  end
+
 end
