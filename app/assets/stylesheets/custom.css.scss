@@ -32,6 +32,10 @@ html {
 
 #mobile {
   padding-top: 0px;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
 }
 
 body {
@@ -307,13 +311,15 @@ li
 /* mobile */
 
 #mobile-map {
-  height: 352px;
-  width: 310px;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
 }
 
 #mobile-gmap_container {
-  height: 352px;
-  width: 310px;
+  height: 450px;
+  width: 360px;
 }
 
 #mobile-map-feed-form-over-map{
