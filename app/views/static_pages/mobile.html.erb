@@ -6,7 +6,7 @@
 
 <div id="mobile-gmap_container">
 	<div id="mobile-map-feed-form-over-map" class="hidden">
-    <%= render partial: 'shared/business_feed_item', collection: @businesses %>
+    <%= render partial: 'shared/mobile_business_feed_item', collection: @businesses %>
   </div>
   <div id="mobile-menu" class="hidden">
     <%= render partial: 'shared/mobile_menu_item', collection: @mobile_menu_items %>
@@ -60,7 +60,7 @@ handler2.buildMap({ provider: {
 
       
 });
-//when the trigger is clicked we check to see if the popout is currently hidden
+//when the business trigger is clicked we check to see if the popout is currently hidden
 //based on the hidden we choose the correct animation
 $('#trigger').click( function() {
     if ($('#mobile-map-feed-form-over-map').hasClass('hidden')) {
@@ -117,6 +117,28 @@ function menuHidePopout() {
         $('#menu-trigger span').html('Show');  //change the trigger text at end of animation
     });
 }
+
+//begin business list jquery on click events to generate new menu
+function dynamicEvent() {
+  alert(this.id);
+  $.ajax({
+          url: '/mobile',
+          type: 'GET',
+          async: false,
+          data: { 
+            id: this.id
+          }
+  });
+}
+
+var div1 = document.getElementById("mobile-map-feed-form-over-map");
+var links = div1.getElementsByTagName('div');
+
+for (var i = 0; i < links.length; i++) {
+  var link = links[i];
+  link.onclick = dynamicEvent;
+}
+
 </script>
 <% end %>
 
