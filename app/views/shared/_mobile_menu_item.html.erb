@@ -1,0 +1,17 @@
+
+<div class="well is-padded">
+  <li id="<%= mobile_menu_item.id %>">
+    
+    <% if !mobile_menu_item.photo.url.nil? %>
+      <%= image_tag mobile_menu_item.photo.url %>
+    <% end %>
+
+    <span class="description"><%= mobile_menu_item.description %></span>
+    <% if mobile_menu_item.price %>
+    	<span class="price"><%= "$" + mobile_menu_item.price.to_s %></span>
+    <% end %>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(mobile_menu_item.created_at) %> ago.
+    </span>
+  </li>
+</div>

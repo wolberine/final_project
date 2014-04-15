@@ -48,12 +48,13 @@ class StaticPagesController < ApplicationController
       marker.infowindow business.name
       marker.json({ title: business.name, id: business.id })
     end
+    @mobile_menu_items = Business.first.feed
     respond_to do |format|
       if request.xhr?
         new_business = Business.find(params[:id])
         @new_menu = new_business.feed
       end
-      format.js { render 'map' }
+      format.js { render 'mobile' }
       format.html 
       format.json 
     end

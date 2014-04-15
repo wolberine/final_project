@@ -329,17 +329,38 @@ li
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-  margin-left: -300px;
+  margin-left: -350px;
 
   background-color: rgba(255,255,255,0.8);
   border: none;
   padding: 5px;
-  height: 352px;
-  width: 300px;
+  height: 450px;
+  width: 340px;
   overflow: auto;
   direction:ltr;
   border-radius:5px;
 }
+
+#mobile-menu{
+  z-index: 100;
+  position: absolute;
+
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 350px;
+
+  background-color: rgba(255,255,255,0.8);
+  border: none;
+  padding: 5px;
+  height: 450px;
+  width: 340px;
+  overflow: auto;
+  direction:ltr;
+  border-radius:5px;
+}
+
+
 
 #trigger {                          
 /* create a clickable area that triggers the slide in/out effect */
