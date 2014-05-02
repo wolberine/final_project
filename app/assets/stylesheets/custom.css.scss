@@ -418,7 +418,8 @@ li
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -300px;
+  /*left: -300px; set to troubleshoot*/
+  left: 0px;
   background-color: rgba(255,255,255,1);
   -webkit-transition: all .1s ease-in-out;
   -moz-transition: all .1s ease-in-out;
