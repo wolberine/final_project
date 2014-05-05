@@ -13,6 +13,7 @@ gem 'devise', '3.0.0.rc'
 gem 'debugger'
 gem 'rmagick', '2.13.2'
 gem 'aws-sdk'
+#gem 'smooth-scroll-rails'
 
 #bug fix
 gem 'sprockets', '2.11.0'
