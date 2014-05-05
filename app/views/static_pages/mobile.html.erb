@@ -6,15 +6,16 @@
 
 
 <div id="mobile-gmap_container">
-  <button type="button" class="button">></button>
-  <button type="button" class="button2"><</button>
+
+  <button type="button" class="button" id="button">></button>
+  <button type="button" class="button2" id="button2"><</button>
   <nav class="menu2" id="menu2" role="navigation2">
       <%= render partial: 'shared/mobile_business_feed_item', collection: @businesses %>
+      <button type="button" class="button2_in" id="button2_in">></button>
   </nav>
   <nav class="menu" id="menu" role="navigation2">
-    <ul>
       <%= render partial: 'shared/mobile_menu_item', collection: @mobile_menu_items %>
-    </ul>
+      <button type="button" class="button_in" id="button_in"><</button>
   </nav>
 	<!--
   <div id="mobile-map-feed-form-over-map" class="hidden">
@@ -26,7 +27,7 @@
   </div>
    -->
 	<div id="mobile-map"></div>
- 
+
 </div>
 <!--<div id="trigger"><span>Show</span></div>
 <div class="span4"></div>
@@ -153,6 +154,26 @@ function dynamicEvent() {
   //hidePopout();
   //menuShowPopout();
 }
+
+var button2=document.getElementById("button2");
+button2.onclick = function(){
+  $(".menu2").css("left","0");
+};
+
+var button2_in=document.getElementById("button2_in");
+button2_in.onclick = function(){
+  $(".menu2").css("left","-300px");
+};
+
+var button=document.getElementById("button");
+button.onclick = function(){
+  $(".menu").css("right","0");
+};
+
+var button_in=document.getElementById("button_in");
+button_in.onclick = function(){
+  $(".menu").css("right","-300px");
+};
 
 var menu2 = document.getElementById("menu2");
 var links = menu2.getElementsByTagName('div');

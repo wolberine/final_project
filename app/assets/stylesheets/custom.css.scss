@@ -447,6 +447,49 @@ li
   color: red;
   transition: .5s;
 }
+.button2_in{
+  z-index: 100;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 20px;
+  color: #111;
+  border: none;
+  outline: none;
+  background: #fff;
+  font-weight: 800;
+  font-size: 3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Sans-serif;
+  letter-spacing: 2px;
+}
+.button2_in:hover{cursor: pointer}
+.button2_in:hover{
+  color: red;
+  transition: .5s;
+}
+
+.button_in{
+  z-index: 100;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 20px;
+  color: #111;
+  border: none;
+  outline: none;
+  background: #fff;
+  font-weight: 800;
+  font-size: 3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Sans-serif;
+  letter-spacing: 2px;
+}
+.button_in:hover{cursor: pointer}
+.button_in:hover{
+  color: red;
+  transition: .5s;
+}
   /*.menu:hover, .button:focus ~ .menu{right: 0}*/
   /* Works fine(if not better) with .button:hover too, or use .button:focus to make it act like a toggle(with .button:focus it also works fine on mobile devices.)*
 
@@ -464,20 +507,10 @@ li
     }
 
 /*.menu:hover, .button:focus ~ .menu{right: 0}*/
-.button:focus ~ .menu{right: 0}
-/*.menu2:hover, .button2:focus ~ .menu2{left: 0}*/
-.button2:focus ~ .menu2{left: 0}
-
-    .menu2 ul li{list-style: none;}
-    .menu2 ul li a{
-      text-decoration: none;
-      text-transform: uppercase;
-      text-align: right;
-      display: block;
-      width: 100%;
-      letter-spacing: 2px;
-      padding: 5px 0;
-    }
+/*.button:focus ~ .menu{right: 0}
+.menu2:hover, .button2:focus ~ .menu2{left: 0}
+.button2-in:focus ~ .menu2{left: -300px;}*/
+/*.button2:focus ~ .menu2{left: 0}*/
 
 
 #trigger {                          
