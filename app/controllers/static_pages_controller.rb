@@ -49,10 +49,12 @@ class StaticPagesController < ApplicationController
       marker.json({ title: business.name, id: business.id })
     end
     @mobile_menu_items = Business.first.feed
+    @mobile_business_name = Business.first.name
     respond_to do |format|
       if request.xhr?
         new_business = Business.find(params[:id])
         @new_menu = new_business.feed
+        @new_name = new_business.name
       end
       format.js { render 'mobile' }
       format.html 
