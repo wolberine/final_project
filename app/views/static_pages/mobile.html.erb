@@ -15,8 +15,12 @@
 
 
   <nav class="menu2" id="menu2" role="navigation2">
+    <p id="mobile_business_name">Restaurants</p>
+    <div class="menu_scroll">
       <%= render partial: 'shared/mobile_business_feed_item', collection: @businesses %>
-      <button type="button" class="button2_in" id="button2_in">></button>
+    </div>
+      <!--<button type="button" class="button2_in" id="button2_in">></button-->      
+      <a href="#" class="btn btn-info btn-block button2_in" id="button2_in"><i class=icon-arrow-right></i> </a>
   </nav>
   <nav class="menu" id="menu" role="navigation2">
       <%= render partial: 'shared/nav_right' %>
@@ -72,7 +76,7 @@ handler2.buildMap({ provider: {
         		id: json_marker.id
         	}
         });
-
+        $(".button").css("background","#F24C27");
       });
   });
       handler2.bounds.extendWith(markers);
@@ -152,6 +156,7 @@ function dynamicEvent() {
           }
   });
 
+  $(".button").css("background","#F24C27");
   //document.getElementById('menu').style.cssText = 'right: 0;';
   //$(".menu").css("right","0");
 
@@ -180,6 +185,7 @@ button.onclick = function(){
 var button_in=document.getElementById("button_in");
 button_in.onclick = function(){
   $(".menu").css("right","-300px");
+  $(".button").css("background","#fff");
 };
 
 

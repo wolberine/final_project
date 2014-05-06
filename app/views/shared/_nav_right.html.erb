@@ -1,5 +1,8 @@
 <p id="mobile_business_name"><%= @mobile_business_name %></p>
-<div id="mobile_menu_container">
-<%= render partial: 'shared/mobile_menu_item', collection: @mobile_menu_items %>
+<div class="menu_scroll">
+	<div id="mobile_menu_container">
+	<%= render partial: 'shared/mobile_menu_item', collection: @mobile_menu_items %>
+	</div>
 </div>
-<button type="button" class="button_in" id="button_in"><</button>
+  <a href="#" class="btn btn-success btn-block button_in" id="button_in"><i class=icon-arrow-left></i> </a>
+<!--<button type="button" class="button_in" id="button_in"><</button>-->
