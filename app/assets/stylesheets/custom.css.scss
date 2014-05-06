@@ -375,20 +375,13 @@ li
 
 .button{
   z-index: 100;
-  padding: 10px 20px;
   position: fixed;
   bottom: 20px;
   right: 20px;
   color: #111;
-  border: none;
-  outline: none;
+  border: 5px solid #F24C27;
+  /*outline: none;*/
   background: #fff;
-  font-weight: 800;
-  font-size: 3em;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: Sans-serif;
-  letter-spacing: 2px;
 }
 .button:hover{cursor: pointer}
 .button:hover{
@@ -414,7 +407,9 @@ li
 }
 .menu2{
   z-index: 100;
-  overflow: auto;
+  /*overflow: auto;*/
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   width: 300px;
   padding: 5px;
   position: fixed;
@@ -429,20 +424,13 @@ li
 }
 .button2{
   z-index: 100;
-  padding: 10px 20px;
   position: fixed;
   bottom: 20px;
   left: 20px;
   color: #111;
-  border: none;
+  border: 5px solid #037E8C;
   outline: none;
   background: #fff;
-  font-weight: 800;
-  font-size: 3em;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: Sans-serif;
-  letter-spacing: 2px;
 }
 .button2:hover{cursor: pointer}
 .button2:hover{
