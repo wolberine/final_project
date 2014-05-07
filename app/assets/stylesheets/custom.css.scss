@@ -350,10 +350,8 @@ li
 #mobile-menu{
   z-index: 100;
   position: absolute;
-
   bottom: 0px;
   right: -360px;
-
   background-color: rgba(255,255,255,0.8);
   border: none;
   padding: 5px;
@@ -379,14 +377,8 @@ li
   bottom: 20px;
   right: 20px;
   color: #111;
-  border: 5px solid #F24C27;
-  /*outline: none;*/
+  border: 3px solid #F24C27;
   background: #fff;
-}
-.button:hover{cursor: pointer}
-.button:hover{
-  color: red;
-  transition: .5s;
 }
 
 .menu{
@@ -437,27 +429,18 @@ li
   bottom: 20px;
   left: 20px;
   color: #111;
-  border: 5px solid #037E8C;
+  border: 3px solid #037E8C;
   outline: none;
   background: #fff;
 }
 
-.button2:hover{cursor: pointer}
-.button2:hover{
-  color: red;
-  transition: .5s;
-}
 .button2_in{
   position: fixed;
   bottom: 0px;
   outline: none;
   width: 300px;
 }
-.button2_in:hover{cursor: pointer}
-.button2_in:hover{
-  color: red;
-  transition: .5s;
-}
+
 
 .button_in{
   position: fixed;
@@ -484,24 +467,12 @@ li
   background: #F2EFDC;
 }
 
-#trigger {                          
-/* create a clickable area that triggers the slide in/out effect */
-    position: absolute;             
-    /* position clickable area to consume entire right section of popout (add a border if you want to see for yourself) */  
-    top: 0;
-    bottom: 0;
-    left: 0;
-    cursor: pointer;   
-    z-index: 100;
-}
-
-#menu-trigger {                          
-/* create a clickable area that triggers the slide in/out effect */
-    position: absolute;             
-    /* position clickable area to consume entire right section of popout (add a border if you want to see for yourself) */  
-    top: 0;
-    bottom: 0;
-    right: 0;
-    cursor: pointer;   
-    z-index: 100;
+.restaurant-well{
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 0px;
+  background-color: #FFFFFC;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
 }
