@@ -391,8 +391,6 @@ li
 
 .menu{
   z-index: 100;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
   /*overflow: auto;*/
   width: 300px;
   padding: 0px;
@@ -408,19 +406,26 @@ li
 .menu2{
   z-index: 100;
   /*overflow: auto;*/
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
   width: 300px;
   padding: 0px;
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -300px; /*set to troubleshoot*/
-  /*left: 0px;*/
+  left: -300px;
   background-color: rgba(255,255,255,1);
   -webkit-transition: all .1s ease-in-out;
   -moz-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
+}
+.menu_scroll{
+  width: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; 
+}
+.button_container{
+  position:fixed;
+  bottom:0;
+  display: block;
 }
 .button2{
   z-index: 100;
@@ -466,7 +471,7 @@ li
 .button2-in:focus ~ .menu2{left: -300px;}*/
 /*.button2:focus ~ .menu2{left: 0}*/
 
-#mobile_business_name{
+.mobile_business_name{
   text-align: center;
   font-size: 1.5em;
   text-decoration: none;

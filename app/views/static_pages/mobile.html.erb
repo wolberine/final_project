@@ -9,18 +9,13 @@
   <!--<button type="button" class="btn btn-large button" id="button"></button>
   <button type="button" class="btn  btn-large button2" id="button2"></button>
 -->
-  <a href="#" class="btn  btn-large button" id="button"><i class=icon-list-alt></i> </a>
-  <a href="#" class="btn  btn-large button2" id="button2"><i class=icon-map-marker></i> </a>
+  <a class="btn  btn-large button" id="button"><i class=icon-list-alt></i> </a>
+  <a class="btn  btn-large button2" id="button2"><i class=icon-map-marker></i> </a>
 
 
 
   <nav class="menu2" id="menu2" role="navigation2">
-    <p id="mobile_business_name">Restaurants</p>
-    <div class="menu_scroll">
-      <%= render partial: 'shared/mobile_business_feed_item', collection: @businesses %>
-    </div>
-      <!--<button type="button" class="button2_in" id="button2_in">></button-->      
-      <a href="#" class="btn btn-info btn-block button2_in" id="button2_in"><i class=icon-arrow-right></i> </a>
+    <%= render partial: 'shared/nav_left' %>
   </nav>
   <nav class="menu" id="menu" role="navigation2">
       <%= render partial: 'shared/nav_right' %>
