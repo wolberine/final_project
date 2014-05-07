@@ -418,11 +418,15 @@ li
   transition: all .1s ease-in-out;
 }
 .menu_scroll{
+  position: relative;
+  height: 90%;
   width: 100%;
-  overflow: scroll;
+  overflow: auto;
+  /*overflow: scroll;*/
   -webkit-overflow-scrolling: touch; 
 }
 .button_container{
+  height: 10%;
   position:fixed;
   bottom:0;
   display: block;
