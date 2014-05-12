@@ -6,14 +6,8 @@
 
 
 <div id="mobile-gmap_container">
-  <!--<button type="button" class="btn btn-large button" id="button"></button>
-  <button type="button" class="btn  btn-large button2" id="button2"></button>
--->
   <a class="btn  btn button" id="button"><i class=icon-list-alt></i></a>
   <a class="btn  btn button2" id="button2"><i class=icon-map-marker></i></a>
-
-
-
   <nav class="menu2" id="menu2" role="navigation2">
     <%= render partial: 'shared/nav_left' %>
   </nav>
@@ -32,9 +26,7 @@
 	<div id="mobile-map"></div>
 
 </div>
-<!--<div id="trigger"><span>Show</span></div>
-<div class="span4"></div>
-<div id="menu-trigger"><span>Show</span></div>-->
+
 
 
 
@@ -42,6 +34,9 @@
 <% content_for :scripts do %>
 <script type="text/javascript">
 var handler2 = Gmaps.build('Google');
+var json_data = <%=raw @hash.to_json %>;
+Gmaps.store = {};
+
 handler2.buildMap({ provider: { 
 	zoom: 1,
 	panBy: (500, 50),
@@ -56,12 +51,13 @@ handler2.buildMap({ provider: {
     }
 }, internal: {id: 'mobile-map'}}, function(){
   // I assume this is the way you retrieve the amrkers array
-  var json_data = <%=raw @hash.to_json %>;
-  var markers = handler2.addMarkers(json_data);
+
+  Gmaps.store.markers = handler2.addMarkers(json_data);
 
   _.each(json_data, function(json_marker, index){
-      json_marker.marker = markers[index];
+      json_marker.marker = Gmaps.store.markers[index];
       google.maps.event.addListener(json_marker.marker.getServiceObject(), 'click', function( event ){
+            $(".button").css("background","#F24C27");  
             $.ajax({
         	url: '/mobile',
         	type: 'GET',
@@ -71,10 +67,9 @@ handler2.buildMap({ provider: {
         		id: json_marker.id
         	}
         });
-        $(".button").css("background","#F24C27");
       });
   });
-      handler2.bounds.extendWith(markers);
+      handler2.bounds.extendWith(Gmaps.store.markers);
       handler2.fitMapToBounds();
 
       
@@ -141,17 +136,62 @@ function menuHidePopout() {
 */
 //begin business list jquery on click events to generate new menu
 function dynamicEvent() {
-
+  link_id = this.id;
+  /*
   $.ajax({
           url: '/mobile',
           type: 'GET',
           async: false,
           data: { 
-            id: this.id
+            id: link_id
           }
   });
-
+  */
   $(".button").css("background","#F24C27");
+_.each(json_data, function(json_marker, index){
+      json_marker.marker = Gmaps.store.markers[index];
+        if (json_marker.id == link_id){
+          //alert(json_marker.title + json_marker.id);
+          //handler2.map.panTo(json_marker.marker.serviceObject.position);
+          //json_marker.marker.panTo();
+          //get_infowindow = json_marker.marker.getServiceObject();
+          //get_infowindow.infowindow.open();
+        
+           ////pick upheree
+
+          googleMarker = json_marker.marker.getServiceObject();
+          google.maps.event.trigger(googleMarker, 'click');
+
+
+          //json_marker.marker.infowindow = json_marker.marker.create_infowindow();
+
+          //PICK UP HERE!!! ABOVE LINE NEEDS TO BE FIGURED OUT
+
+
+
+
+        }
+  });
+//var float_id = parseFloat(this.id);
+//var div_id = _.where(json_data, { infowindow: "Supinos Pizza" } );
+//alert(_.isNumber(float_id));
+
+  //var click_lat = parseFloat(this.firstElementChild.id);
+  //var click_lng = parseFloat(this.firstElementChild.firstElementChild.id);
+  //alert(_.isNumber(click_lat));
+  //alert(_.isNumber(click_lng));
+  //handler2.map.centerOn([42.3721596, click_lng]);
+
+  
+  //alert(this.text( $( "div" ).data("location").longitude));
+//$( "span:first" ).text( $( "div" ).data( "test" ).first );
+  //var divlatlng = this.children(); 
+  //handler2.map.centerOn([-34.397, 150.644]);
+  //id = this.latitude;
+
+  //if (business) handler2.map.centerOn([business.lat, business.lng]);
+  //this.lat;
+  //this.lng;
   //document.getElementById('menu').style.cssText = 'right: 0;';
   //$(".menu").css("right","0");
 
@@ -186,13 +226,18 @@ button_in.onclick = function(){
 
 var menu2 = document.getElementById("menu2");
 var links = menu2.getElementsByTagName('div');
-
-
-
-for (var i = 0; i < links.length; i++) {
+for (var i = 0; i < links.length - 1; i++) {
   var link = links[i];
-  link.onclick = dynamicEvent;
+  //if ($(link).hasClass('menu_scroll')){
+    link.onclick = dynamicEvent;
+  //}
 }
+
+
+      //#moves map to marker clicked + open infowindow
+      //$(document).on 'click', '#mobile_business_feed_item', -> alert('hi');
+        //markers[$(this).data('marker')].panTo()
+        //markers[$(this).data('marker')].click()
 
 </script>
 <% end %>

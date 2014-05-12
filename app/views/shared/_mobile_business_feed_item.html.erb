@@ -1,5 +1,9 @@
 
-<div class="restaurant-well" id="<%= mobile_business_feed_item.id %>">
+<div class="restaurant-well mobile_business_feed_item" id="<%= mobile_business_feed_item.id %>">
+<div id="<%= mobile_business_feed_item.latitude %>">
+	<div id="<%= mobile_business_feed_item.longitude %>">
+	</div>
+</div>
 <li id="<%= mobile_business_feed_item.id %>">  
   <%= gravatar_for mobile_business_feed_item, size: 52 %>
   <%= link_to mobile_business_feed_item.name, mobile_business_feed_item %>
