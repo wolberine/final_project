@@ -137,67 +137,24 @@ function menuHidePopout() {
 //begin business list jquery on click events to generate new menu
 function dynamicEvent() {
   link_id = this.id;
-  /*
-  $.ajax({
-          url: '/mobile',
-          type: 'GET',
-          async: false,
-          data: { 
-            id: link_id
-          }
-  });
-  */
+  
+  //$.ajax({
+  //        url: '/mobile',
+  //        type: 'GET',
+  //        async: false,
+  //        data: { 
+  //          id: link_id
+  //        }
+  //});
+  
   $(".button").css("background","#F24C27");
 _.each(json_data, function(json_marker, index){
       json_marker.marker = Gmaps.store.markers[index];
         if (json_marker.id == link_id){
-          //alert(json_marker.title + json_marker.id);
-          //handler2.map.panTo(json_marker.marker.serviceObject.position);
-          //json_marker.marker.panTo();
-          //get_infowindow = json_marker.marker.getServiceObject();
-          //get_infowindow.infowindow.open();
-        
-           ////pick upheree
-
           googleMarker = json_marker.marker.getServiceObject();
           google.maps.event.trigger(googleMarker, 'click');
-
-
-          //json_marker.marker.infowindow = json_marker.marker.create_infowindow();
-
-          //PICK UP HERE!!! ABOVE LINE NEEDS TO BE FIGURED OUT
-
-
-
-
         }
   });
-//var float_id = parseFloat(this.id);
-//var div_id = _.where(json_data, { infowindow: "Supinos Pizza" } );
-//alert(_.isNumber(float_id));
-
-  //var click_lat = parseFloat(this.firstElementChild.id);
-  //var click_lng = parseFloat(this.firstElementChild.firstElementChild.id);
-  //alert(_.isNumber(click_lat));
-  //alert(_.isNumber(click_lng));
-  //handler2.map.centerOn([42.3721596, click_lng]);
-
-  
-  //alert(this.text( $( "div" ).data("location").longitude));
-//$( "span:first" ).text( $( "div" ).data( "test" ).first );
-  //var divlatlng = this.children(); 
-  //handler2.map.centerOn([-34.397, 150.644]);
-  //id = this.latitude;
-
-  //if (business) handler2.map.centerOn([business.lat, business.lng]);
-  //this.lat;
-  //this.lng;
-  //document.getElementById('menu').style.cssText = 'right: 0;';
-  //$(".menu").css("right","0");
-
-  //on click, hide businesses and show the menu
-  //hidePopout();
-  //menuShowPopout();
 }
 
 
