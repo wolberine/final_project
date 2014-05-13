@@ -44,7 +44,7 @@
 //$( document ).ready(function() {
 	
 //});
-
+//make the menu item description div not as high so the snap button has more room.  even better, figure out how to display image before upload
 
 
 $( "#file_upload_spoof").click(function(){$( "input:file" ).click()});
@@ -53,7 +53,7 @@ $( "#file_upload_spoof").click(function(){$( "input:file" ).click()});
      $("input:file").change(function (){
        $( "#file_upload_spoof" ).removeClass("btn-primary").addClass("btn-success");   
        $(".mobile_menu_wrapper").css("bottom","0");   
-       $(".snap_button_wrapper").css("margin-bottom","5px");            
+       $(".snap_button_wrapper").css("margin-top","20px");            
      });
   });
 
