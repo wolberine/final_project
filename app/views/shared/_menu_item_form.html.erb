@@ -5,6 +5,10 @@
     <%= f.text_area :description, placeholder: "Compose new menu item description..." %>
   </div>
     <%= f.text_field :price, placeholder: "Enter menu item price" %>
-    <p><%= f.file_field :photo %></p>
+    
+
+    		<p><%= f.file_field :photo %></p>
+
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
+

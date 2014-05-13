@@ -1,0 +1,46 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<% if signed_in? %>
+
+<div class="text-center row top-buffer">
+  	<button class="btn btn-primary btn-xlarge" id="file_upload_spoof"><i class="icon-white icon-camera"></i> Snap</button>	
+</div>
+	<%= form_for @menu_item, :html => { :multipart => true }  do |f| %>
+  		<%= render 'shared/error_messages', object: f.object %>
+    	<%= f.text_field :name, placeholder: "Enter menu item name", :class => "top-buffer" %>
+  		<div class="field">
+    		<%= f.text_area :description, placeholder: "Compose new menu item description..." %>
+  		</div>
+    	<%= f.text_field :price, placeholder: "Enter menu item price" %>
+    	<div id="photo_attachment_container">
+  			<div class="photo_wrapper">
+  				<div class="file_upload_wrapper"> 
+    				<%= f.file_field :photo, :style => "hidden"%>
+    			</div>
+    			<!--pick up here!! probably place the file-field off the page and then put a button on the page that clicks the browse button -->
+    		</div>
+    	</div>
+		<div class="text-center">
+  			<%= f.submit "Post", class: "btn btn-xlarge btn-primary top-buffer" %>
+		</div>
+	<% end %>
+
+
+<% else %>
+
+<% end %>
+
+<script>
+//$( document ).ready(function() {
+	
+//});
+
+$( "#file_upload_spoof").click(function(){$( "input:file" ).click()});
+
+  $(function() {
+     $("input:file").change(function (){
+       $( "#file_upload_spoof" ).removeClass("btn-primary").addClass("btn-success");                 
+     });
+  });
+
+</script>

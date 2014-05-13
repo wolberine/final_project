@@ -62,4 +62,14 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def mobile_upload #mobile upload view prototype
+    @skip_header = true
+    @skip_footer = true
+    @mobile_body = true
+    if signed_in?
+      @menu_item = current_business.menu_items.build 
+    else
+    end
+  end
+
 end
