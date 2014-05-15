@@ -68,7 +68,9 @@ class StaticPagesController < ApplicationController
     @mobile_body = true
     if signed_in?
       @menu_item = current_business.menu_items.build 
+      @mobile_menu_items = current_business.feed.paginate(page: params[:page])
     else
+      #put in a landing page for mobile
     end
   end
 

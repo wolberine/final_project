@@ -3,38 +3,40 @@
 <% if signed_in? %>
 
 <div class="text-center row snap_button_wrapper">
-  	<button class="btn row btn-primary btn-xlarge" id="file_upload_spoof"><i class="icon-white icon-camera"></i> Snap</button>	
-
-
-
+  	<button class="btn row btn-primary btn-xlarge" id="file_upload_spoof"><i class="icon-white icon-camera"></i>Add a menu item!</button>	
 </div>
 
-
+<div class="text-center previewContainer top-buffer">
+    <img id="imgPreview" src="#" alt="your image"/>
+</div>
 
 <nav class="mobile_menu_wrapper" role="navigation">
   <div class="side-buffers">
   	<%= form_for @menu_item, :html => { :multipart => true }  do |f| %>
     		<%= render 'shared/error_messages', object: f.object %>
-      	<%= f.text_field :name, placeholder: "Enter menu item name", :class => "top-buffer" %>
+      	<%= f.text_area :name, placeholder: "Enter menu item name", :class => "top-buffer" %>
     		<div class="field">
       		<%= f.text_area :description, placeholder: "Compose new menu item description..." %>
     		</div>
-      	<%= f.text_field :price, placeholder: "Enter menu item price" %>
+      	<%= f.text_area :price, placeholder: "Enter menu item price" %>
       	<div id="photo_attachment_container">
     			<div class="photo_wrapper">
     				<div class="file_upload_wrapper"> 
-      				<%= f.file_field :photo, :style => "hidden"%>
+      				<%= f.file_field :photo, :style => "hidden", :id => "imgInp" %>
       			</div>
       		</div>
       	</div>
-  		<div class="text-center row top-buffer">
+  		<div class="text-center row bottom-buffer">
     			<%= f.submit "Post", class: "btn-xlarge" %>
   		</div>
     <% end %>
   </div>
 </nav>
 
-
+  <!--<nav class="menu3" id="menu3" role="navigation2">
+      <%= render partial: 'shared/nav_right' %>
+  </nav>
+  <a class="btn  btn button" id="button"><i class=icon-list-alt></i></a>-->
 
 <% else %>
 
@@ -47,14 +49,48 @@
 //make the menu item description div not as high so the snap button has more room.  even better, figure out how to display image before upload
 
 
-$( "#file_upload_spoof").click(function(){$( "input:file" ).click()});
+$( "#file_upload_spoof").click(
+  function(){
+    $( "input:file" ).click()
+    }
+  );
 
   $(function() {
      $("input:file").change(function (){
        $( "#file_upload_spoof" ).removeClass("btn-primary").addClass("btn-success");   
        $(".mobile_menu_wrapper").css("bottom","0");   
-       $(".snap_button_wrapper").css("margin-top","20px");            
+       $(".snap_button_wrapper").css("margin-top","20px");
+       $( "#file_upload_spoof").html("<i class='icon-white icon-camera'></i> Change Picture")            
      });
   });
+
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imgPreview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+
+
+var button=document.getElementById("button");
+button.onclick = function(){
+  $(".menu").css("right","0");
+};
+
+var button_in=document.getElementById("button_in");
+button_in.onclick = function(){
+  $(".menu").css("right","-300px");
+  $(".button").css("background","#fff");
+};
 
 </script>
