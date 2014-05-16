@@ -62,7 +62,9 @@ $( "#file_upload_spoof").click(
        //$( "#file_upload_spoof" ).removeClass("btn-primary").addClass("btn-success");   
       //$( ".snap_button_wrapper" ).remove();  
       $( "#snap_button_wrapper" ).css('display','none');  
-       $(".mobile_menu_wrapper").css("bottom","0");   
+       $(".mobile_menu_wrapper").css("bottom","0");
+       $('#imgPreview').css('display','');   
+
        //$(".snap_button_wrapper").css("margin-top","20px");
        //$( "#file_upload_spoof").html("<i class='icon-white icon-camera'></i> Change Picture");            
      });
@@ -92,7 +94,9 @@ var button3=document.getElementById("button3");
 button3.onclick = function(){
   $(".mobile_menu_wrapper").css("bottom","-400px");
   $( "#snap_button_wrapper" ).css('display','');
-  $('#imgPreview').attr('src', '');
+  $('#imgPreview').css('display','none');
+
+  //src is broken on mobile chromePICK UP HERE
 };
 
 
