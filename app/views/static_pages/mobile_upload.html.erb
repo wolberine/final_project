@@ -2,11 +2,11 @@
 
 <% if signed_in? %>
 
-<div class="text-center row snap_button_wrapper">
+<div class="text-center row snap_button_wrapper" id="snap_button_wrapper">
   	<button class="btn row btn-primary btn-xlarge" id="file_upload_spoof"><i class="icon-white icon-camera"></i>Add a menu item!</button>	
 </div>
 
-<div class="text-center previewContainer top-buffer">
+<div class="text-center previewContainer">
     <img id="imgPreview" src="#" alt="your image"/>
 </div>
 
@@ -26,11 +26,13 @@
       			</div>
       		</div>
       	</div>
-  		<div class="text-center row bottom-buffer">
-    			<%= f.submit "Post", class: "btn-xlarge" %>
-  		</div>
+    		<div class="text-center">
+      			<%= f.submit "Post", class: "btn-xlarge post_button" %>
+    		</div>
+        <a class="btn btn button3 pull-right" id="button3"><i class="icon-black icon-remove"></i></a>
     <% end %>
   </div>
+ 
 </nav>
 
   <!--<nav class="menu3" id="menu3" role="navigation2">
@@ -57,12 +59,16 @@ $( "#file_upload_spoof").click(
 
   $(function() {
      $("input:file").change(function (){
-       $( "#file_upload_spoof" ).removeClass("btn-primary").addClass("btn-success");   
+       //$( "#file_upload_spoof" ).removeClass("btn-primary").addClass("btn-success");   
+      //$( ".snap_button_wrapper" ).remove();  
+      $( "#snap_button_wrapper" ).css('display','none');  
        $(".mobile_menu_wrapper").css("bottom","0");   
-       $(".snap_button_wrapper").css("margin-top","20px");
-       $( "#file_upload_spoof").html("<i class='icon-white icon-camera'></i> Change Picture")            
+       //$(".snap_button_wrapper").css("margin-top","20px");
+       //$( "#file_upload_spoof").html("<i class='icon-white icon-camera'></i> Change Picture");            
      });
   });
+
+
 
 function readURL(input) {
 
@@ -82,15 +88,12 @@ $("#imgInp").change(function(){
 });
 
 
-var button=document.getElementById("button");
-button.onclick = function(){
-  $(".menu").css("right","0");
+var button3=document.getElementById("button3");
+button3.onclick = function(){
+  $(".mobile_menu_wrapper").css("bottom","-400px");
+  $( "#snap_button_wrapper" ).css('display','');
+  $('#imgPreview').attr('src', '');
 };
 
-var button_in=document.getElementById("button_in");
-button_in.onclick = function(){
-  $(".menu").css("right","-300px");
-  $(".button").css("background","#fff");
-};
 
 </script>
