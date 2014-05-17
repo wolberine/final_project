@@ -2,9 +2,11 @@
 <div class="restaurant-well">
   <li id="<%= mobile_menu_item.id %>">
     
-    <% if !mobile_menu_item.photo.url.nil? %>
-      <%= image_tag mobile_menu_item.photo.url %>
-    <% end %>
+    <div class="text-center">
+      <% if !mobile_menu_item.photo.url.nil? %>
+        <%= image_tag mobile_menu_item.photo.url %>
+      <% end %>
+    </div>
 
     <span class="description"><%= mobile_menu_item.description %></span>
     <% if mobile_menu_item.price %>

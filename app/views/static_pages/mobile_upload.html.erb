@@ -2,8 +2,10 @@
 
 <% if signed_in? %>
 
-<div class="text-center row snap_button_wrapper" id="snap_button_wrapper">
-  	<button class="btn row btn-primary btn-xlarge" id="file_upload_spoof"><i class="icon-white icon-camera"></i>Add a menu item!</button>	
+<div class="bottom-buffer">
+  <div class="text-center row snap_button_wrapper" id="snap_button_wrapper">
+    	<button class="btn row btn-primary btn-xlarge" id="file_upload_spoof"><i class="icon-white icon-camera"></i>Add a menu item!</button>	
+  </div>
 </div>
 
 <div class="text-center previewContainer">
@@ -33,6 +35,10 @@
     <% end %>
   </div>
  
+</nav>
+
+<nav class="menu3" id="menu3" role="navigation2">
+    <%= render partial: 'shared/nav_bottom' %>
 </nav>
 
   <!--<nav class="menu3" id="menu3" role="navigation2">

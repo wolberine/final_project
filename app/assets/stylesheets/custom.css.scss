@@ -469,6 +469,7 @@ li
 
 .restaurant-well{
   min-height: 20px;
+  width: 100%;
   padding: 19px;
   margin-bottom: 0px;
   background-color: #FFFFFC;
@@ -476,6 +477,7 @@ li
   border-radius: 4px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
 }
+
 
 /* mobile upload form */
 
@@ -509,7 +511,7 @@ li
 }
 
 .top-buffer { margin-top:20px; }
-.bottom-buffer { margin-top:20px; }
+.bottom-buffer { margin-bottom:40%; }
 .side-buffers { 
   margin-right:10px; 
   margin-left:10px;
@@ -590,3 +592,15 @@ li
   outline: none;
   background: #fff;
 }
+
+.menu3{
+//border-top:5px solid green;
+-webkit-box-shadow: 0px 1px 3px #000000;
+-moz-box-shadow: 0px 1px 3px #000000;
+box-shadow: 0px 1px 3px #000000;
+}
+
+
+
+/*It generally adds a 1px blurred shadow 1px from the bottom of the box
+box-shadow: [horizontal offset] [vertical offset] [blur radius] [color];*/
