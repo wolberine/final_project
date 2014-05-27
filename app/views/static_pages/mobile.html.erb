@@ -35,6 +35,9 @@
 <script type="text/javascript">
 var handler2 = Gmaps.build('Google');
 var json_data = <%=raw @hash.to_json %>;
+
+var user_ip_json_data = <% raw @result_hash.to_json %>
+
 Gmaps.store = {};
 
 handler2.buildMap({ provider: { 
@@ -56,18 +59,24 @@ handler2.buildMap({ provider: {
 
   _.each(json_data, function(json_marker, index){
       json_marker.marker = Gmaps.store.markers[index];
-      google.maps.event.addListener(json_marker.marker.getServiceObject(), 'click', function( event ){
-            $(".button").css("background","#F24C27");  
-            $.ajax({
-        	url: '/mobile',
-        	type: 'GET',
-        	async: false,
-        	data: { 
-        		title: json_marker.title,
-        		id: json_marker.id
-        	}
+      if (json_marker.id == "user_ip_location"){
+        json_marker.marker.getServiceObject().setIcon('https://s3.amazonaws.com/wolberine/google_maps_icons/star-3.png');
+      }
+      else{
+        
+        google.maps.event.addListener(json_marker.marker.getServiceObject(), 'click', function( event ){
+              $(".button").css("background","#F24C27");  
+              $.ajax({
+          	url: '/mobile',
+          	type: 'GET',
+          	async: false,
+          	data: { 
+          		title: json_marker.title,
+          		id: json_marker.id
+          	}
+          });
         });
-      });
+      }
   });
       handler2.bounds.extendWith(Gmaps.store.markers);
       handler2.fitMapToBounds();
@@ -195,6 +204,7 @@ for (var i = 0; i < links.length - 1; i++) {
       //$(document).on 'click', '#mobile_business_feed_item', -> alert('hi');
         //markers[$(this).data('marker')].panTo()
         //markers[$(this).data('marker')].click()
+
 
 </script>
 <% end %>
