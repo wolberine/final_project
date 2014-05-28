@@ -56,8 +56,14 @@
     });
   }
   var button3=document.getElementById("sign-up-div");
-  button3.onclick = function(){scrollToElement('#mobile-sign-up')};
+  button3.onclick = function(){
+    scrollToElement('#mobile-sign-up');
+    $( "#mobile-sign-up" ).css('margin-bottom','0px;');
+  };
 
   var button4=document.getElementById("sign-in-div");
-  button4.onclick = function(){scrollToElement('#mobile-sign-in')};
+  button4.onclick = function(){
+    scrollToElement('#mobile-sign-in');
+    $( "#mobile-sign-up" ).css('margin-bottom','600px;');
+  };
 </script>
