@@ -12,6 +12,7 @@ FinalProject::Application.routes.draw do
   match '/map',     to: 'static_pages#map',     via: 'get'
   match '/mobile_upload',  to: 'static_pages#mobile_upload',     via: 'get'
   match '/mobile',  to: 'static_pages#mobile',     via: 'get'
+  match '/mobile_signin',  to: 'sessions#mobile',     via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

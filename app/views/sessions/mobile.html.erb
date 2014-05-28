@@ -1,0 +1,63 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<h3>Sign in</h3>
+
+<div class="row">
+  <div class="side-buffers left-buffer">
+    <div class='mobile-sign-in' id='mobile-sign-in'>
+      <%= form_for(:session, url: sessions_path) do |f| %>
+
+        <%= f.text_field :email, placeholder: "Enter email" %>
+
+        <%= f.password_field :password, placeholder: "Enter password" %>
+
+        <%= f.submit "Sign in", class: "btn btn-large btn-primary", style: "display:block; width:100%" %>
+      <% end %>
+      <h3 class="text-center">or </h3>
+      <%= link_to "Sign up now!", '', :class => "btn-info btn-large text-center", id: "sign-up-div", style: "display:block; width:100%" %>
+    </div>
+
+
+    <div class='mobile-sign-up' id='mobile-sign-up'>
+      <h3>Sign up</h3>
+      <%= form_for(@business) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.text_field :name, placeholder: "Enter Restaurant Name" %>
+
+        <%= f.text_field :address, placeholder: "Enter Restaurant Address" %>
+
+        <%= f.text_field :email, placeholder:"Enter Email Address" %>
+
+        <%= f.password_field :password, placeholder:"Enter Password" %>
+
+        <%= f.password_field :password_confirmation, placeholder:"Confirm Password" %>
+
+        <%= f.submit "Create My Account", class: "btn btn-large btn-primary", style: "display:block; width:100%" %>
+      <% end %>
+<h3>Whoops...</h3>
+    <%= link_to "Take me back to Sign in!", '', :class => "btn-info btn-large text-center", id: "sign-in-div", style: "display:block; width:100%" %>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<script>
+  function scrollToElement(selector, callback){
+    var animation = {scrollTop: $(selector).offset().top-50};
+    $('html,body').animate(animation, 'slow', 'swing', function(){
+      if (typeof callback == 'function'){
+        callback();
+      }
+      callback = null;
+    });
+  }
+  var button3=document.getElementById("sign-up-div");
+  button3.onclick = function(){scrollToElement('#mobile-sign-up')};
+
+  var button4=document.getElementById("sign-in-div");
+  button4.onclick = function(){scrollToElement('#mobile-sign-in')};
+</script>

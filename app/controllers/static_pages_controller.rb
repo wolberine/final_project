@@ -69,7 +69,7 @@ class StaticPagesController < ApplicationController
         first_loop = 1
         marker.lat result.latitude
         marker.lng result.longitude
-        marker.infowindow result.city
+        marker.infowindow "You are nearby here"
         marker.json({ title: result.city, id: "user_ip_location" })
       else
         marker.lat business.latitude
