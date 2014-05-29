@@ -48,7 +48,7 @@
 <script>
   function scrollToElement(selector, callback){
     var animation = {scrollTop: $(selector).offset().top-50};
-    $('html,body').animate(animation, 'slow', 'swing', function(){
+    $('body').animate(animation, 'slow', 'swing', function(){
       if (typeof callback == 'function'){
         callback();
       }
