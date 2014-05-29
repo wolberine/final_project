@@ -1,10 +1,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h3>Sign in</h3>
 
-<div class="row">
-  <div class="side-buffers left-buffer">
-    <div class='mobile-sign-in' id='mobile-sign-in'>
+
+
+    <nav class='mobile_sign_in' role="navigation">
+      <h3>Sign in</h3>
       <%= form_for(:session, url: sessions_path) do |f| %>
 
         <%= f.text_field :email, placeholder: "Enter email" %>
@@ -14,11 +14,11 @@
         <%= f.submit "Sign in", class: "btn btn-large btn-primary", style: "display:block; width:100%" %>
       <% end %>
       <h3 class="text-center">or </h3>
-      <%= link_to "Sign up now!", '', :class => "btn-info btn-large text-center", id: "sign-up-div", style: "display:block; width:100%" %>
-    </div>
+      <button class="btn-info btn-large text-center" id="sign-up-div" style="display:block; width:100%">Sign up now!</button> 
+    </nav>
 
 
-    <div class='mobile-sign-up' id='mobile-sign-up'>
+    <nav class='mobile_sign_up' role="navigation2">
       <h3>Sign up</h3>
       <%= form_for(@business) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
@@ -35,35 +35,40 @@
 
         <%= f.submit "Create My Account", class: "btn btn-large btn-primary", style: "display:block; width:100%" %>
       <% end %>
-<h3>Whoops...</h3>
-    <%= link_to "Take me back to Sign in!", '', :class => "btn-info btn-large text-center", id: "sign-in-div", style: "display:block; width:100%" %>
-    </div>
+      <h3>Whoops...</h3>
+      <button class="btn-info btn-large text-center" id="sign-in-div" style="display:block; width:100%">Take me back to sign in!</button> 
+    </nav>
 
 
-
-  </div>
-</div>
 
 
 <script>
-  function scrollToElement(selector, callback){
-    var animation = {scrollTop: $(selector).offset().top-50};
-    $('body').animate(animation, 'slow', 'swing', function(){
-      if (typeof callback == 'function'){
-        callback();
-      }
-      callback = null;
-    });
-  }
-  var button3=document.getElementById("sign-up-div");
+  //function scrollToElement(selector, callback){
+  //  var animation = {scrollTop: $(selector).offset().top-50};
+  //  $('body').animate(animation, 'slow', 'swing', function(){
+  //    if (typeof callback == 'function'){
+  //      callback();
+  //    }
+  //    callback = null;
+  //  });
+  //}
+
+  //var mobileSignIn = document.getElementById("mobileSignIn");
+  var button3 = document.getElementById("sign-up-div");
   button3.onclick = function(){
-    scrollToElement('#mobile-sign-up');
-    $( "#mobile-sign-up" ).css('margin-top','0px;');
+    //scrollToElement('#mobile-sign-up');
+    $( ".mobile_sign_in" ).css('top',"-600px");
+    $( ".mobile_sign_up" ).css('bottom','0px');
+    //$( ".mobile_sign_in" ).css("background", "blue");
   };
 
   var button4=document.getElementById("sign-in-div");
   button4.onclick = function(){
-    scrollToElement('#mobile-sign-in');
-    $( "#mobile-sign-up" ).css('margin-top','600px;');
+    //scrollToElement('#mobile-sign-in');
+    $( ".mobile_sign_up" ).css('bottom','-600px');
+    $( ".mobile_sign_in" ).css('top','0px');
   };
+
+//THIS IS STILL AN ISSUE ON MOBILE.  HOW DO YOU PROPERLY SCROLL TO ON MOBILE?!!?!
+
 </script>
